@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentVerse | Dashboard</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #f4f7ff;
+    --card: #ffffff;
+    --text: #172554;
+    --muted: #64748b;
+    --primary: #2563eb;
+    --border: #e2e8f0;
+}
+
+body.dark {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f1f5f9;
+    --muted: #cbd5e1;
+    --primary: #60a5fa;
+    --border: #334155;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 240px;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    padding: 25px 16px;
+    flex-shrink: 0;
+}
+
+.logo {
+    color: var(--primary);
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 35px;
+    padding-left: 10px;
+}
+
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 13px;
+    margin-bottom: 7px;
+    border-radius: 9px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: var(--primary);
+    color: white;
+}
+
+.main {
+    flex: 1;
+    min-width: 0;
+    padding: 28px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.topbar p {
+    color: var(--muted);
+    margin-top: 7px;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 11px 15px;
+    cursor: pointer;
+    background: var(--primary);
+    color: white;
+    font-size: 14px;
+}
+
+.welcome {
+    background: linear-gradient(120deg, #2563eb, #6366f1);
+    color: white;
+    padding: 28px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+}
+
+.welcome h2 {
+    margin-bottom: 12px;
+}
+
+.welcome p {
+    line-height: 1.6;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: var(--card);
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+}
+
+.card h3 {
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.section-title {
+    margin-bottom: 15px;
+}
+
+.progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 10px;
+    margin-top: 14px;
+    overflow: hidden;
+}
+
+.progress div {
+    height: 100%;
+    background: var(--primary);
+    width: 65%;
+}
+
+.goal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.goal input {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--primary);
+}
+
+.goal label {
+    line-height: 1.5;
+}
+
+.quick-link {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 25px 0 5px;
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sidebar {
+        width: 190px;
+    }
+}
+
+@media (max-width: 600px) {
+    .layout {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 15px;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .sidebar nav {
+        display: flex;
+        gap: 5px;
+        overflow-x: auto;
+    }
+
+    .sidebar a {
+        white-space: nowrap;
+    }
+
+    .main {
+        padding: 18px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        align-items: flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="logo">StudentVerse ✦</div>
+
+        <nav>
+            <a href="dashboard.html" class="active">🏠 Dashboard</a>
+            <a href="study.html">📚 Study Hub</a>
+            <a href="planner.html">📅 Planner</a>
+            <a href="#goals">🎯 My Goals</a>
+            <a href="#insights">📊 Insights</a>
+            <a href="#career">💼 Career</a>
+            <a href="#community">👥 Community</a>
+            <a href="#profile">👤 Profile</a>
+            <a href="login.html">↩ Login Page</a>
+        </nav>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <div>
+                <h1>My Dashboard 👋</h1>
+                <p>Your space to learn, plan and grow.</p>
+            </div>
+
+            <button id="themeButton" type="button">🌙 Dark Mode</button>
+        </header>
+
+        <section class="welcome">
+            <h2>Welcome to StudentVerse! 💙</h2>
+            <p>Your goals matter. Your progress matters. Start small today
+            and keep moving towards the future you want.</p>
+        </section>
+
+        <h2 class="section-title">Your Overview</h2>
+
+        <section class="grid">
+            <article class="card">
+                <h3>📚 Study Hub</h3>
+                <p>Keep your learning resources and study notes organised.</p>
+                <a class="quick-link" href="#study">Explore →</a>
+            </article>
+
+            <article class="card">
+                <h3>🎯 Daily Goals</h3>
+                <p>Set small goals and check them off as you complete them.</p>
+                <a class="quick-link" href="#goals">View Goals →</a>
+            </article>
+
+            <article class="card">
+                <h3>📅 Study Planner</h3>
+                <p>Plan your tasks and make time for what matters.</p>
+                <a class="quick-link" href="#planner">Open Planner →</a>
+            </article>
+        </section>
+
+        <section class="grid">
+            <article class="card" id="study">
+                <h3>📖 My Learning</h3>
+                <p>Track your current learning progress.</p>
+                <div class="progress"><div></div></div>
+                <p style="margin-top:10px">Sample progress: 65%</p>
+            </article>
+
+            <article class="card" id="goals">
+                <h3>🎯 Today's Goals</h3>
+
+                <div class="goal">
+                    <input type="checkbox" id="goal1">
+                    <label for="goal1">Complete today's study session</label>
+                </div>
+
+                <div class="goal">
+                    <input type="checkbox" id="goal2">
+                    <label for="goal2">Practise programming</label>
+                </div>
+
+                <div class="goal">
+                    <input type="checkbox" id="goal3">
+                    <label for="goal3">Review class notes</label>
+                </div>
+            </article>
+
+            <article class="card" id="planner">
+                <h3>📅 Study Planner</h3>
+                <p>Choose a date to plan your study tasks.</p>
+
+                <input type="date" id="studyDate"
+                       style="margin-top:15px; padding:10px; max-width:100%;">
+
+                <p id="dateMessage" style="margin-top:12px"></p>
+            </article>
+        </section>
+
+        <section class="grid">
+            <article class="card" id="insights">
+                <h3>📊 Insights</h3>
+                <p>Build consistency and review your learning habits.</p>
+            </article>
+
+            <article class="card" id="career">
+                <h3>💼 Career Preparation</h3>
+                <p>Work towards your skills, projects and future opportunities.</p>
+            </article>
+
+            <article class="card" id="community">
+                <h3>👥 Community</h3>
+                <p>Connect with fellow learners and share ideas.</p>
+            </article>
+        </section>
+
+        <section class="card" id="profile">
+<script>
+    // Select all daily goal checkboxes
+    const goalCheckboxes = document.querySelectorAll(
+        '#goals input[type="checkbox"]'
+    );
+
+    // Load saved goal states
+    goalCheckboxes.forEach(function (checkbox) {
+        const savedState = localStorage.getItem(checkbox.id);
+
+        if (savedState !== null) {
+            checkbox.checked = savedState === "true";
+        }
+
+        // Save changes automatically
+        checkbox.addEventListener("change", function () {
+            localStorage.setItem(checkbox.id, checkbox.checked);
+        });
+    });
+</script>
+
